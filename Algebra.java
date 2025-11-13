@@ -95,7 +95,7 @@ public class Algebra {
 		}
 		tX2=minus(x2, x2);
 		tX2=minus(tX2, x2);
-		t= times(tX1,x2);
+		t= times(x1,tX2);
 		result=t;
 		result = minus(result,t);
 		result = minus(result,t);
@@ -109,6 +109,8 @@ public class Algebra {
 	public static int pow(int x, int n) {
 		// Replace the following statement with your code
 		int t=x;
+		if(n==0)
+			return 1;
 		for(int k=1;k<n;k++)
 		{
 			t=times(t,x);
@@ -153,7 +155,7 @@ public class Algebra {
 		}
 		tX2=minus(x2, x2);
 		tX2=minus(tX2, x2);
-		t= div(tX1,x2);
+		t= div(x1,tX2);
 		result=t;
 		result = minus(result,t);
 		result = minus(result,t);
@@ -194,7 +196,7 @@ public class Algebra {
 		}
 		tX2=minus(x2, x2);
 		tX2=minus(tX2, x2);
-		return div(tX1,x2);
+		return div(x1,tX2);
 
 	}	
 
