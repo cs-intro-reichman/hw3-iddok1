@@ -29,7 +29,30 @@ public class Anagram {
 	// Returns true if the two given strings are anagrams, false otherwise.
 	public static boolean isAnagram(String str1, String str2) {
 		// Replace the following statement with your code
-		return false;
+		str1= preProcess(str1);
+		str2 = preProcess(str2);
+		String temp="";
+		boolean flag=false;
+		for(int i=0;i<str1.length();i++)
+		{
+			flag=false;
+			for(int j=0;j<str2.length()&&!flag;j++)
+			{
+				if(str1.charAt(i)==str2.charAt(j))
+				{
+					for(int k=0;k<str2.length();k++)
+					{
+						if(k!=j)
+							temp +=str2.charAt(k);
+
+					}
+					flag=true;
+				}
+			}
+			if(!flag)
+			return false;
+		}
+		return true;
 	}
 	   
 	// Returns a preprocessed version of the given string: all the letter characters are converted
@@ -37,13 +60,44 @@ public class Anagram {
 	// as is. For example, the string "What? No way!" becomes "whatnoway"
 	public static String preProcess(String str) {
 		// Replace the following statement with your code
-		return "";
+		String s = "";
+		String process="";
+		for(int i=0;i<str.length();i++)
+		{
+			s="";
+			s+=str.charAt(i);
+			s=s.toLowerCase();
+			if(s.charAt(0)>=97&&s.charAt(0)<=122)
+			{
+				process+=s;
+			}
+		}
+		return process;
 	} 
 	   
 	// Returns a random anagram of the given string. The random anagram consists of the same
 	// characters as the given string, re-arranged in a random order. 
 	public static String randomAnagram(String str) {
 		// Replace the following statement with your code
-		return "";
+		int length = str.length();
+		String temp=str;
+		String n ="";
+		int index=0;
+		for(int j=0;j<length;j++){
+		 index =(int) (Math.random()*(temp.length()));
+		n+=temp.charAt(index);
+		str=temp;
+		temp="";
+		for(int i=0;i<length-j;i++)
+		{
+			if(i!=index)
+			{
+				temp+=str.charAt(i);
+			}
+		}
+	}
+		return n;
+
+		
 	}
 }
