@@ -67,7 +67,9 @@ public class Algebra {
 	public static int times(int x1, int x2) {
 		// Replace the following statement with your code
 		int t=0,tX1=x1,tX2=x2,result=0;
-		if(x2>=0&&x1>=0){
+		if(x1==0|| x2==0)
+			return 0;
+		if(x2>0&&x1>0){
 		 t=x1;
 		for(int i=1;i<x2;i++)
 		{
@@ -203,10 +205,14 @@ public class Algebra {
 	// Returns the integer part of sqrt(x) 
 	public static int sqrt(int x) {
 		// Replace the following statement with your code
+		if(x==1)
+			return 1;
 		for(int i=0;i<x;i++)
 		{
-			if(pow(i,2)>=x)
+			if(times(i,i)>x)
 				return i-1;
+			if(times(i,i)==x)
+				return i;	
 		}
 		return 0;
 	}	  	  
